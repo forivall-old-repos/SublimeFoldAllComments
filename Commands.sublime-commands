@@ -1,0 +1,6 @@
+[
+  {
+    "caption": "Code Folding: Fold All Comments",
+    "command": "fold_all_comments"
+  }
+]
