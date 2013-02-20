@@ -2,5 +2,17 @@
   {
     "caption": "Code Folding: Fold All Comments",
     "command": "fold_all_comments"
+  },
+  {
+    "caption": "Code Folding: Fold Whitespace",
+    "command": "fold_all_whitespace_lines"
+  },
+  {
+    "caption": "Code Folding: Fold Non-word lines",
+    "command": "fold_boring_lines"
+  },
+  {
+    "caption": "Code Folding: Simplify Folds",
+    "command": "simplify_folds"
   }
 ]

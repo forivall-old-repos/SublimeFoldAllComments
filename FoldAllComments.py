@@ -45,3 +45,36 @@ class FoldAllCommentsCommand(sublime_plugin.TextCommand):
             break
 
         self.view.fold([sublime.Region(r.a, r.b - 1) for r in merged_regions])
+
+
+class FoldAllWhitespaceLines(sublime_plugin.TextCommand):
+    ''' view.run_command('fold_all_comments') '''
+    def run(self, edit):
+        self.view.fold(self.view.find_all(r'\h*\v{2,}\h*$'))
+
+
+class FoldBoringLines(sublime_plugin.TextCommand):
+    def run(self, edit):
+        self.view.fold(self.view.find_all(r'\n(^[^a-zA-Z0-9]*$)+'))
+
+
+def iter_simplify(regions):
+    regions_iter = iter(regions)
+    first = next(regions_iter)
+    begin = first.a
+    end = first.b
+    for region in regions_iter:
+        if region.a != end:
+            yield sublime.Region(begin, end)
+            begin = region.a
+        end = region.b
+    yield sublime.Region(begin, end)
+
+
+class SimplifyFolds(sublime_plugin.TextCommand):
+    def run(self, edit):
+        folded_regions = self.view.folded_regions()
+        if len(folded_regions) < 2:
+            return
+        self.view.unfold(folded_regions)
+        self.view.fold(list(iter_simplify(folded_regions)))
