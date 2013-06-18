@@ -14,5 +14,37 @@
   {
     "caption": "Code Folding: Simplify Folds",
     "command": "simplify_folds"
+  },
+  {
+    "caption": "Code Folding: Fold Lines With Only Braces",
+    "command": "fold_stupid_curlys_only_lines"
+  },
+  {
+    "caption": "Code Folding: Fold Extra Newlines",
+    "command": "fold_stupidly_formatted_newlines"
+  },
+  {
+    "caption": "Code Folding: Fold All Levels",
+    "command": "fold_all_levels"
+  },
+  {
+    "caption": "Code Folding: Fold Jinja/Django template blocks",
+    "command": "fold_template_blocks"
+  },
+  {
+    "caption": "Count SLOC",
+    "command": "count_sloc"
+  },
+  {
+    "caption": "Code Folding: Save Folds As",
+    "command": "save_folds"
+  },
+  {
+    "caption": "Code Folding: Save Folds",
+    "command": "resave_folds"
+  },
+  {
+    "caption": "Code Folding: Load Folds",
+    "command": "load_folds"
   }
 ]
